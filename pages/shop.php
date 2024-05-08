@@ -374,7 +374,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item sale">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="../img/product/product-3.jpg">
                                     <span class="label">Sale</span>
                                     <ul class="product__hover">
                                         <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>
@@ -445,7 +445,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item sale">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-6.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="../img/product/product-6.jpg">
                                     <span class="label">Sale</span>
                                     <ul class="product__hover">
                                         <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>
@@ -481,7 +481,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-7.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="../img/product/product-7.jpg">
                                     <ul class="product__hover">
                                         <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>
                                         <li><a href="#"><img src="../img/icon/compare.png" alt=""> <span>Compare</span></a>
@@ -516,7 +516,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/product/product-8.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="../img/product/product-8.jpg">
                                     <ul class="product__hover">
                                         <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>
                                         <li><a href="#"><img src="../img/icon/compare.png" alt=""> <span>Compare</span></a>
