@@ -1,0 +1,14 @@
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+footer div li{
+    list-style: none;
+}
+
+.main img{
+    height: 500px !important;
+}
