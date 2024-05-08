@@ -6,3 +6,7 @@ function isConnect():bool{
     }
     return !empty($_SESSION['user']);
 }
+
+function redirect_to_login():void{
+    header('Location: /login.php');
+}

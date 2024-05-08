@@ -1,3 +1,10 @@
+<?php
+require_once 'auth.php';
+var_dump(isConnect());
+unset($_SESSION['user']);
+redirect_to_login();
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -25,6 +32,7 @@
 </head>
 
 <body>
+
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -93,25 +101,25 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="./index.php"><img src="img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop.html">Shop</a></li>
+                            <li class="active"><a href="./index.php">Home</a></li>
+                            <li><a href="/pages/shop.php">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
-                                    <li><a href="./about.html">About Us</a></li>
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="/pages/about.php">About Us</a></li>
+                                    <li><a href="/pages/shop-details.php">Shop Details</a></li>
+                                    <li><a href="/pages/shopping-cart.php">Shopping Cart</a></li>
+                                    <li><a href="/pages/checkout.php">Check Out</a></li>
+                                    <li><a href="/pages/blog-details.php">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contacts</a></li>
+                            <li><a href="/pages/blog.php">Blog</a></li>
+                            <li><a href="/pages/contact.php">Contacts</a></li>
                         </ul>
                     </nav>
                 </div>
