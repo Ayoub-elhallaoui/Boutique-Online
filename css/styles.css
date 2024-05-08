@@ -8,3 +8,7 @@
 footer div li{
     list-style: none;
 }
+
+.main img{
+    height: 500px !important;
+}
