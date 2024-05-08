@@ -1,7 +1,7 @@
 <?php
 require_once 'auth.php';
-var_dump(isConnect());
-unset($_SESSION['user']);
+// var_dump(isConnect());
+// unset($_SESSION['user']);
 redirect_to_login();
 
 ?>
@@ -82,7 +82,9 @@ redirect_to_login();
                         <div class="header__top__right">
                             <div class="header__top__links">
                                 <a href="#">Sign in</a>
-                                <a href="#">FAQs</a>
+                                <?php if(isConnect()):?>
+                                    <a href="/logout.php">Logout</a>
+                                <?php endif;?>
                             </div>
                             <div class="header__top__hover">
                                 <span>Usd <i class="arrow_carrot-down"></i></span>

@@ -2,11 +2,14 @@
 function isConnect():bool{
     if(session_status() === PHP_SESSION_NONE){
         session_start();
-        $_SESSION['user'] = 1;
+        $_SESSION['user']=1;
     }
     return !empty($_SESSION['user']);
 }
 
 function redirect_to_login():void{
-    header('Location: /login.php');
+    if(!isConnect()){
+        header('Location: /login.php');
+        exit();
+    }
 }
