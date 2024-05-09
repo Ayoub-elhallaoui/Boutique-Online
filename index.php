@@ -1,3 +1,10 @@
+<?php
+require_once 'auth.php';
+// var_dump(isConnect());
+// unset($_SESSION['user']);
+redirect_to_login();
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -25,6 +32,7 @@
 </head>
 
 <body>
+
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -74,7 +82,7 @@
                         <div class="header__top__right">
                             <div class="header__top__links">
                                 <a href="#">Sign in</a>
-                                <a href="#">FAQs</a>
+                                
                             </div>
                             <div class="header__top__hover">
                                 <span>Usd <i class="arrow_carrot-down"></i></span>
@@ -100,18 +108,18 @@
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li class="active"><a href="./index.php">Home</a></li>
-                            <li><a href="./pages/shop.php">Shop</a></li>
+                            <li><a href="/pages/shop.php">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
-                                    <li><a href="./pages/about.php">About Us</a></li>
-                                    <li><a href="./pages/shop-details.php">Shop Details</a></li>
-                                    <li><a href="./pages/shopping-cart.php">Shopping Cart</a></li>
-                                    <li><a href="./pages/checkout.php">Check Out</a></li>
-                                    <li><a href="./pages/blog-details.php">Blog Details</a></li>
+                                    <li><a href="/pages/about.php">About Us</a></li>
+                                    <li><a href="/pages/shop-details.php">Shop Details</a></li>
+                                    <li><a href="/pages/shopping-cart.php">Shopping Cart</a></li>
+                                    <li><a href="/pages/checkout.php">Check Out</a></li>
+                                    <li><a href="/pages/blog-details.php">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./pages/blog.php">Blog</a></li>
-                            <li><a href="./pages/contact.php">Contacts</a></li>
+                            <li><a href="/pages/blog.php">Blog</a></li>
+                            <li><a href="/pages/contact.php">Contacts</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -120,7 +128,13 @@
                         <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
                         <a href="#"><img src="img/icon/heart.png" alt=""></a>
                         <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">$0.00</div>
+                        
+                        <?php if(isConnect()):?>
+                            <button class="btn btn-dark">
+                                <a href="/logout.php"
+                                class="text-light fs-3">Logout</a>
+                            </button>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>
