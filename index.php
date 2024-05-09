@@ -82,9 +82,7 @@ redirect_to_login();
                         <div class="header__top__right">
                             <div class="header__top__links">
                                 <a href="#">Sign in</a>
-                                <?php if(isConnect()):?>
-                                    <a href="/logout.php">Logout</a>
-                                <?php endif;?>
+                                
                             </div>
                             <div class="header__top__hover">
                                 <span>Usd <i class="arrow_carrot-down"></i></span>
@@ -130,7 +128,13 @@ redirect_to_login();
                         <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
                         <a href="#"><img src="img/icon/heart.png" alt=""></a>
                         <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">$0.00</div>
+                        
+                        <?php if(isConnect()):?>
+                            <button class="btn btn-dark">
+                                <a href="/logout.php"
+                                class="text-light fs-3">Logout</a>
+                            </button>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>
