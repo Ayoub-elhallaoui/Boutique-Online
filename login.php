@@ -2,13 +2,10 @@
 require_once 'auth.php';
 $USERS = "db/users.csv";
 $users=fopen($USERS,'r');
-while($ligne=fgetcsv($users,null,",")){
-// var_dump($ligne[1]);
-// var_dump($_POST);
-// var_dump($_POST['password']);
 $error = "";
+while($ligne=fgetcsv($users,null,",")){
+    // var_dump($ligne);
 $hash = password_hash($ligne[1], PASSWORD_BCRYPT, ['cost'=>12]);
-// var_dump($hash);
 //var_dump(password_verify($_POST['password'],"$hash"));
 // $password = '$2y$10$6o5YbMz5K6OivQNGXTHNdujWvc0OUSMaUTG6fdpvBcm0WznXf4GaO';
 if(isset($_POST['pseudo']) && isset($_POST['password'])){
@@ -34,9 +31,9 @@ if(isset($_POST['pseudo']) && isset($_POST['password'])){
 </head>
 <body>
     <div class="container mt-5">
-        <div class="row">
-            <h1 class="text-center">Authentication</h1>
-            <div class=" mt-5 d-flex justify-content-center ">
+        <div class="row bg-light mt-5">
+            <h1 class="mt-5 text-center">LOGIN</h1>
+            <div class="  d-flex justify-content-center ">
                 <form class="form-group" method="POST">
                     <?php if($error):?>
                         <div class="alert alert-danger">
@@ -55,6 +52,7 @@ if(isset($_POST['pseudo']) && isset($_POST['password'])){
                   </div>
                   <!-- Submit button -->
                   <button type="submit" class="btn btn-sm btn-primary btn-block mb-4">Sign in</button>
+                  <a href="/signup.php">Sign up</a>
                 </form>
 
             </div>
