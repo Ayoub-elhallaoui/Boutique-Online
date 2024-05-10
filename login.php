@@ -1,12 +1,18 @@
 <?php
 require_once 'auth.php';
-
-// var_dump($_GET);
-// $_POST['password']==='1234'
+$users = "user.csv";
+$user=fopen($users,'r');
+$ligne=fgetcsv($user,null,",");
+var_dump($ligne[1]);
+var_dump($_POST);
+var_dump($_POST['password']);
 $error = "";
-$password = '$2y$10$6o5YbMz5K6OivQNGXTHNdujWvc0OUSMaUTG6fdpvBcm0WznXf4GaO';
+$hash = password_hash($ligne[1], PASSWORD_BCRYPT, ['cost'=>12]);
+var_dump($hash);
+var_dump(password_verify($_POST['password'],"$hash"));
+// $password = '$2y$10$6o5YbMz5K6OivQNGXTHNdujWvc0OUSMaUTG6fdpvBcm0WznXf4GaO';
 if(isset($_POST['pseudo']) && isset($_POST['password'])){
-    if($_POST['pseudo']==="admin" && password_verify($_POST['password'],$password)){
+    if($_POST['pseudo']===$ligne[0] && password_verify($_POST['password'],$hash)){
         session_start();
         $_SESSION['user']=1;
         header('Location: /index.php');
