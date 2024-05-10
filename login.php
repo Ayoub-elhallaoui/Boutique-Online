@@ -8,7 +8,7 @@ $ligne=fgetcsv($users,null,",");
 // var_dump($_POST['password']);
 $error = "";
 $hash = password_hash($ligne[1], PASSWORD_BCRYPT, ['cost'=>12]);
-var_dump($hash);
+// var_dump($hash);
 var_dump(password_verify($_POST['password'],"$hash"));
 // $password = '$2y$10$6o5YbMz5K6OivQNGXTHNdujWvc0OUSMaUTG6fdpvBcm0WznXf4GaO';
 if(isset($_POST['pseudo']) && isset($_POST['password'])){
