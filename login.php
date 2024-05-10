@@ -1,8 +1,8 @@
 <?php
 require_once 'auth.php';
-$users = "user.csv";
-$user=fopen($users,'r');
-$ligne=fgetcsv($user,null,",");
+$USERS = "db/users.csv";
+$users=fopen($USERS,'r');
+$ligne=fgetcsv($users,null,",");
 var_dump($ligne[1]);
 var_dump($_POST);
 var_dump($_POST['password']);
