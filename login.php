@@ -1,6 +1,6 @@
 <?php
 require_once 'auth.php';
-$users = "user.csv";
+$users = "./db/users.csv";
 $user=fopen($users,'r');
 $ligne=fgetcsv($user,null,",");
 var_dump($ligne[1]);
