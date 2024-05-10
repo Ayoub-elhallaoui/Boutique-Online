@@ -242,7 +242,7 @@
 
 
 
-img/products/wool-sweater.jpg,Merino Wool Sweater,"Stay warm and stylish with this merino wool sweater. Made from premium wool, it's soft, breathable, and perfect for layering.",Men,Tops,S/M/L/XL,89.99,35
+ img/products/wool-sweater.jpg,Merino Wool Sweater,"Stay warm and stylish with this merino wool sweater. Made from premium wool, it's soft, breathable, and perfect for layering.",Men,Tops,S/M/L/XL,89.99,35
 img/products/aviator-sunglasses.jpg,Aviator Sunglasses,"These classic aviator sunglasses are a timeless accessory. With polarized lenses and a durable metal frame, they offer both style and protection from the sun.",Men,Accessories,One Size,49.99,65
 img/products/oxford-shoes.jpg,Leather Oxford Shoes,"These handsome leather oxford shoes are perfect for any formal or professional occasion. With a sleek design and premium leather construction, they'll elevate any outfit.",Men,Footwear,8-12,119.99,25
 img/products/canvas-backpack.jpg,Canvas Backpack,"This rugged canvas backpack is perfect for everyday use or outdoor adventures. With multiple compartments and a padded laptop sleeve, it's both stylish and functional.",Men,Bags,One Size,59.99,40
