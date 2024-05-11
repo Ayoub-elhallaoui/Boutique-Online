@@ -1,13 +1,22 @@
 <?php
 $users = "db/users.csv";
+// $users = fopen($users,'r');
 $success = null;
+
 if(isset($_POST['pseudo'],$_POST['passwd'])){
     $pseudo = $_POST["pseudo"];
     $password = $_POST["passwd"];
-    file_put_contents($users,"\n".implode(',',$_POST),FILE_APPEND);
-    $success = "Votre inscription a réussie!";
-}
-$users = file_get_contents($users);
+
+    // var_dump($_POST);
+    // $line = fgetcsv($users,null,',');
+    // while($line = fgetcsv($users,null,',')){
+      // var_dump(count($line));
+      file_put_contents($users,"\n".implode(',',$_POST),FILE_APPEND);
+      $success = "Votre inscription a réussie!";
+    }
+    // fclose($users);
+// }
+// $users = file_get_contents($users);
 
 ?>
 <pre>
@@ -26,7 +35,7 @@ $users = file_get_contents($users);
 </head>
 <body>
     <div class="container mt-5">
-        <div class="row bg-light mt-5">
+        <div class="row bg-light rounded mt-5">
             <h1 class="mt-5 text-center">SIGN UP</h1>
             <div class="  d-flex justify-content-center ">
                 <form class="form-group" method="POST">
@@ -52,7 +61,7 @@ $users = file_get_contents($users);
                   </div>
                   <!-- Submit button -->
                   <button type="submit" class="btn btn-sm btn-primary btn-block mb-4">Sign up</button>
-                  <a href="/login.php">Login</a>
+                  <p>Si vous avez un compte,veuillez vous <a href="/login.php">Connecter</a></p>
                 </form>
 
             </div>

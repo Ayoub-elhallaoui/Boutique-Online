@@ -5,11 +5,11 @@ $users=fopen($USERS,'r');
 $error = "";
 while($ligne=fgetcsv($users,null,",")){
     // var_dump($ligne);
-$hash = password_hash($ligne[1], PASSWORD_BCRYPT, ['cost'=>12]);
+$hash = password_hash($ligne[2], PASSWORD_BCRYPT, ['cost'=>12]);
 //var_dump(password_verify($_POST['password'],"$hash"));
 // $password = '$2y$10$6o5YbMz5K6OivQNGXTHNdujWvc0OUSMaUTG6fdpvBcm0WznXf4GaO';
 if(isset($_POST['pseudo']) && isset($_POST['password'])){
-    if($_POST['pseudo']===$ligne[0] && password_verify($_POST['password'],$hash)){
+    if($_POST['pseudo']===$ligne[1] && password_verify($_POST['password'],$hash)){
         session_start();
         $_SESSION['user']=1;
         header('Location: /index.php');
@@ -52,7 +52,8 @@ if(isset($_POST['pseudo']) && isset($_POST['password'])){
                   </div>
                   <!-- Submit button -->
                   <button type="submit" class="btn btn-sm btn-primary btn-block mb-4">Sign in</button>
-                  <a href="/signup.php">Sign up</a>
+                  <p>Si vous n'avez pas de compte,veuillez vous <a href="/signup.php">Inscrire</a></p>
+
                 </form>
 
             </div>
