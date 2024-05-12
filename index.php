@@ -258,14 +258,14 @@ $PRODUCTS = fopen($PRODUCTS, 'r');
                             <div class="product__item__pic set-bg" data-setbg="<?= $ligne[1] ?>">
                                 <span class="label">New</span>
                                 <ul class="product__hover">
-                                    <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                    <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
+                                    <!-- <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li> -->
+                                    <!-- <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li> -->
                                     <li><a href="pages/shop-details.php?id=<?=$ligne[0]?>"><img src="img/icon/search.png" alt=""></a></li>
                                 </ul>
                             </div>
                                 <div class="product__item__text">
                                     <h6><?= $ligne[2] ?></h6>
-                                    <a href="#" class="add-cart">+ Add To Cart</a>
+                                    <!-- <a href="#" class="add-cart">+ Add To Cart</a> -->
                                     <div class="rating">
                                         <i class="fa fa-star-o"></i>
                                         <i class="fa fa-star-o"></i>
@@ -273,7 +273,7 @@ $PRODUCTS = fopen($PRODUCTS, 'r');
                                         <i class="fa fa-star-o"></i>
                                         <i class="fa fa-star-o"></i>
                                     </div>
-                                    <h5><?= $ligne[7] ?></h5>
+                                    <h5>$<?= $ligne[7] ?></h5>
                                     <div class="product__color__select">
                                         <label for="pc-1">
                                             <input type="radio" id="pc-1">

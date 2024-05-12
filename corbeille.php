@@ -266,6 +266,29 @@ img/products/wool-socks.jpg,Merino Wool Socks,"These premium merino wool socks a
 
 
 
+
+
+
+1,3,2024-05-01,49.99,"123 Main St, Anytown, CA 12345"
+2,6,2024-05-03,89.50,"456 Oak Ave, Somecity, NY 67890"
+3,2,2024-05-05,25.75,"789 Pine Rd, Otherville, TX 24680"
+4,9,2024-05-07,64.25,"159 Maple Ln, Somewhere, IL 35791"
+5,4,2024-05-10,105.99,"753 Elm St, Anothertown, FL 86421"
+6,7,2024-05-12,32.49,"246 Cedar Ct, Yetanotherplace, PA 97532"
+7,1,2024-05-15,76.25,"369 Birch Blvd, Somewhereelse, OH 14785"
+8,10,2024-05-18,18.99,"753 Walnut Ave, Placeville, NM 25963"
+9,5,2024-05-20,57.75,"159 Cherry Ln, Anotherspot, VA 36147"
+10,8,2024-05-22,41.99,"753 Spruce St, Yetanothercity, CO 74185"
+
+
+
+
+
+
+
+
+
+
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="../img/product/product-2.jpg">

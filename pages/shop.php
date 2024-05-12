@@ -3,7 +3,6 @@ $products = "../db/products.csv";
 $products = fopen($products,"r");
 
 var_dump($_GET);
-echo $_GET['termSearch'];
 
 ?>
 <!DOCTYPE html>
@@ -146,7 +145,7 @@ echo $_GET['termSearch'];
                     <div class="breadcrumb__text">
                         <h4>Shop</h4>
                         <div class="breadcrumb__links">
-                            <a href="./index.php">Home</a>
+                            <a href="../index.php">Home</a>
                             <span>Shop</span>
                         </div>
                     </div>
@@ -163,15 +162,12 @@ echo $_GET['termSearch'];
                 <div class="col-lg-3">
                     <div class="shop__sidebar">
                         <div class="shop__sidebar__search">
-                            <?php if($_GET['termSearch']):?>
                                 <form action="#" method="GET">
                                     <input type="text" id="search" name="termSearch" placeholder="Search...">
                                     <button type="submit"><span class="icon_search"></span></button>
                                 </form>
                                 <div id="afficher">
-                                    
                                 </div>
-                            <?php endif;?>
                         </div>
                         <div class="shop__sidebar__accordion">
                             <div class="accordion" id="accordionExample">
