@@ -2,6 +2,9 @@
 $products = "../db/products.csv";
 $products = fopen($products,"r");
 
+var_dump($_GET);
+echo $_GET['termSearch'];
+
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -27,6 +30,7 @@ $products = fopen($products,"r");
     <link rel="stylesheet" href="../css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="../css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <script type="module" src="../js/script.js"></script>
 </head>
 
 <body>
@@ -159,10 +163,15 @@ $products = fopen($products,"r");
                 <div class="col-lg-3">
                     <div class="shop__sidebar">
                         <div class="shop__sidebar__search">
-                            <form action="#">
-                                <input type="text" placeholder="Search...">
-                                <button type="submit"><span class="icon_search"></span></button>
-                            </form>
+                            <?php if($_GET['termSearch']):?>
+                                <form action="#" method="GET">
+                                    <input type="text" id="search" name="termSearch" placeholder="Search...">
+                                    <button type="submit"><span class="icon_search"></span></button>
+                                </form>
+                                <div id="afficher">
+                                    
+                                </div>
+                            <?php endif;?>
                         </div>
                         <div class="shop__sidebar__accordion">
                             <div class="accordion" id="accordionExample">
@@ -340,7 +349,6 @@ $products = fopen($products,"r");
                         </div>
                     </div>
                     <div class="row">
-
                         <?php if(isset($products)): ?>
                         <?php fgetcsv($products,null,",") ?>
                         <?php while($line = fgetcsv($products,null,",")): ?>
@@ -348,15 +356,15 @@ $products = fopen($products,"r");
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="../<?=$line[1]?>">
                                     <ul class="product__hover">
-                                        <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>
+                                        <!-- <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>
                                         <li><a href="#"><img src="../img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                        </li>
+                                        </li> -->
                                         <li><a href="shop-details.php?id=<?=$line[0]?>"><img src="../img/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
                                     <h6><?=$line[2]?></h6>
-                                    <a href="#" class="add-cart">+ Add To Cart</a>
+                                    <!-- <a href="#" class="add-cart">+ Add To Cart</a> -->
                                     <div class="rating">
                                         <i class="fa fa-star-o"></i>
                                         <i class="fa fa-star-o"></i>

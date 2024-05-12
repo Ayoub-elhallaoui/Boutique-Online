@@ -1,3 +1,9 @@
+<?php
+    var_dump($_GET);
+    $products = "../db/products.csv";
+    $products = fopen($products,"r");
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -151,6 +157,14 @@
     <!-- Shopping Cart Section Begin -->
     <section class="shopping-cart spad">
         <div class="container">
+        <?php if($products): ?>
+                                    <?php while($line = fgetcsv($products,null,",")): ?>
+                                        <?php if(
+                                            ((int)$line[0] === (int)$_GET['id']) && 
+                                            ((int)$line[1] === (int)$_GET['img']) &&
+                                            ((int)$line[2] === (int)$_GET['title']) && 
+                                            ((int)$line[7] === (int)$_GET['prix'])
+                                            ):?>
             <div class="row">
                 <div class="col-lg-8">
                     <div class="shopping__cart__table">
@@ -164,34 +178,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="../img/shopping-cart/cart-1.jpg" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>T-shirt Contrast Pocket</h6>
-                                            <h5>$98.49</h5>
-                                        </div>
-                                    </td>
-                                    <td class="quantity__item">
-                                        <div class="quantity">
-                                            <div class="pro-qty-2">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">$ 30.00</td>
-                                    <td class="cart__close"><i class="fa fa-close"></i></td>
-                                </tr>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="../img/shopping-cart/cart-2.jpg" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>Diagonal Textured Cap</h6>
-                                            <h5>$98.49</h5>
+                                
+                                        <tr>
+                                            <td class="product__cart__item">
+                                                <div class="product__cart__item__pic">
+                                                    <img src="../<?= $line[1] ?>" width="90" height="90" alt="">
+                                                </div>
+                                                <div class="product__cart__item__text">
+                                                    <h6><?= $line[2] ?></h6>
+                                            <h5>$<?= $line[7] ?></h5>
                                         </div>
                                     </td>
                                     <td class="quantity__item">
@@ -201,56 +196,18 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="cart__price">$ 32.50</td>
+                                    <td class="cart__price">$ <?= $line[7] ?></td>
                                     <td class="cart__close"><i class="fa fa-close"></i></td>
                                 </tr>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="../img/shopping-cart/cart-3.jpg" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>Basic Flowing Scarf</h6>
-                                            <h5>$98.49</h5>
-                                        </div>
-                                    </td>
-                                    <td class="quantity__item">
-                                        <div class="quantity">
-                                            <div class="pro-qty-2">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">$ 47.00</td>
-                                    <td class="cart__close"><i class="fa fa-close"></i></td>
-                                </tr>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="../img/shopping-cart/cart-4.jpg" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>Basic Flowing Scarf</h6>
-                                            <h5>$98.49</h5>
-                                        </div>
-                                    </td>
-                                    <td class="quantity__item">
-                                        <div class="quantity">
-                                            <div class="pro-qty-2">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">$ 30.00</td>
-                                    <td class="cart__close"><i class="fa fa-close"></i></td>
-                                </tr>
+                                
+                               
                             </tbody>
                         </table>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="continue__btn">
-                                <a href="#">Continue Shopping</a>
+                                <a href="shop.php">Continue Shopping</a>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
@@ -258,26 +215,31 @@
                                 <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-lg-4">
-                    <div class="cart__discount">
+                    <!-- <div class="cart__discount">
                         <h6>Discount codes</h6>
                         <form action="#">
                             <input type="text" placeholder="Coupon code">
                             <button type="submit">Apply</button>
                         </form>
-                    </div>
+                    </div> -->
                     <div class="cart__total">
                         <h6>Cart total</h6>
                         <ul>
-                            <li>Subtotal <span>$ 169.50</span></li>
-                            <li>Total <span>$ 169.50</span></li>
+                            <li>Subtotal <span>$<?=$line[7]?></span></li>
+                            <li>Total <span>$<?=$line[7]?></span></li>
                         </ul>
-                        <a href="#" class="primary-btn">Proceed to checkout</a>
+                        <a href="checkout.php?id=<?=$line[0]?>&title=<?=$line[2]?>&prix=<?=$line[7]?>" class="primary-btn">Proceed to checkout</a>
                     </div>
+                    
                 </div>
             </div>
+            <?php endif; ?>
+                                <?php endwhile; ?>
+                                <?php endif; ?>
+                                <?php fclose($products) ?>
         </div>
     </section>
     <!-- Shopping Cart Section End -->

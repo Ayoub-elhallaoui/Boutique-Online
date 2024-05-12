@@ -224,7 +224,7 @@ $products = fopen($products,"r");
                                         <input type="text" value="1">
                                     </div>
                                 </div>
-                                <a href="shopping-cart.php" class="primary-btn">add to cart</a>
+                                <a href="shopping-cart.php?id=<?= $line[0] ?>&img=<?= $line[1] ?>&title=<?= $line[2] ?>&prix=<?= $line[7] ?>" class="primary-btn">add to cart</a>
                             </div>
                             <!-- <div class="product__details__btns__option">
                                 <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
