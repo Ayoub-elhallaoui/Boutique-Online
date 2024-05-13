@@ -3,20 +3,19 @@ $users = "db/users.csv";
 // $users = fopen($users,'r');
 $success = null;
 
-if(isset($_POST['pseudo'],$_POST['passwd'])){
+if(isset($_POST['pseudo'],$_POST['passwd'],$_POST['email'])){
     $pseudo = $_POST["pseudo"];
     $password = $_POST["passwd"];
-
+    $email = $_POST["email"];
+    $users_id = rand(0,1000);
     // var_dump($_POST);
     // $line = fgetcsv($users,null,',');
     // while($line = fgetcsv($users,null,',')){
       // var_dump(count($line));
-      file_put_contents($users,"\n".implode(',',$_POST),FILE_APPEND);
+      // file_put_contents($users,"\n".implode(',',$_POST),FILE_APPEND);
+      file_put_contents($users,"\n$users_id,$pseudo,$password,$email",FILE_APPEND);
       $success = "Votre inscription a réussie!";
     }
-    // fclose($users);
-// }
-// $users = file_get_contents($users);
 
 ?>
 <pre>

@@ -1,46 +1,3 @@
-<?php
-// var_dump($_GET);
-$products = '../db/products.csv';
-// file_put_contents($orders,'dvfbfd',FILE_APPEND);
-$products = fopen($products, 'r');
-
-$orders = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR . 'orders.csv';
-$success = null;
-$erreur = null;
-
-$orders_id = rand(1,1000);
-if( isset( $orders,$_POST['name'],$_POST['date'],$_POST['address'],$_POST['tel'],$_POST['email'],$_GET['id'],$_GET['prix'] )){
-$name = $_POST['name'];
-$date = $_POST['date'];
-$address = $_POST['address'];
-$tel = $_POST['tel'];
-$email = $_POST['email'];
-$product_id = $_GET['id'];
-$total_amount = $_GET['prix']; 
-    file_put_contents($orders, "\n$orders_id,$name,$product_id,$total_amount,$date,$address,$tel,$email", FILE_APPEND);
-    // $_POST = array();
-    // $_GET = array();
-    // $success = 'La commande a été faite avec succés';
-    header('Location:./200.php');
-}else{
-    $erreur = "Veullier confirmé votre commande";
-}
-// fclose($products);
-
-
-// var_dump(file($orders));
-// $_POST = array();
-// $_GET = array();
-// var_dump($_POST['click']);
-?>
-<pre>
-<?php
-    //   var_dump($_POST);
-    //   var_dump($_GET);
-
-
-?>
-</pre>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -172,7 +129,6 @@ $total_amount = $_GET['prix'];
         </div>
     </header>
     <!-- Header Section End -->
-
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">
         <div class="container">
@@ -183,7 +139,7 @@ $total_amount = $_GET['prix'];
                         <div class="breadcrumb__links">
                             <a href="../index.php">Home</a>
                             <a href="./shop.php">Shop</a>
-                            <span>Check Out</span>
+                            <span>Merci</span>
                         </div>
                     </div>
                 </div>
@@ -191,165 +147,13 @@ $total_amount = $_GET['prix'];
         </div>
     </section>
     <!-- Breadcrumb Section End -->
+    <div class="container-fluid">
+        <a class="text-decoration-none" href="../pages/shop.php"><img src="../img/200OK.png" alt=""></a>
+    </div>
 
 
-    <!-- Checkout Section Begin -->
-    <?php  
-    // fgetcsv($products, null, ','); 
-    ?>
-    <?php fgetcsv($products,null,',') ?>
-    <?php while($line = fgetcsv($products, null, ',')):?>
-    <?php if( isset($_GET['id']) && ((int)$line[0]) === ((int)$_GET['id']) ): ?>
-        
-    <section class="checkout spad">
-        <div class="container">
-            <div class="checkout__form">
-
-                <form action="#" method="POST">
-                    <?php 
-                    if($success):?>
-                    <div class="alert alert-success">
-                        <?= $success ?>
-                    </div>
-                    <?php else:?>
-                        <div class="alert alert-danger">
-                            <?= $erreur ?>
-                        </div>
-                    <?php endif;?>
-                    <div class="row">
-                        <div class="col-lg-8 col-md-6">
-                            <!-- <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click -->
-                            <!-- here</a> to enter your code</h6> -->
-                            <!-- <h6 class="checkout__title">Billing Details</h6> -->
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Name<span>*</span></p>
-                                        <input type="text" name="name">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Date<span>*</span></p>
-                                        <input type="date" name="date">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="checkout__input">
-                                <p>Country<span>*</span></p>
-                                <input type="text" name="country">
-                            </div> -->
-                            <div class="checkout__input">
-                                <p>Address<span>*</span></p>
-                                <input type="text" name="address" placeholder="Street Address"
-                                    class="checkout__input__add">
-                                <!-- <input type="text" name="fisrtName" placeholder="Apartment, suite, unite ect (optinal)"> -->
-                            </div>
-                            <!-- <div class="checkout__input">
-                                <p>Town/City<span>*</span></p>
-                                <input type="text" name="fisrtName">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Country/State<span>*</span></p>
-                                <input type="text" name="fisrtName">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text" name="fisrtName">
-                            </div> -->
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="tel" name="tel">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="email" name="email">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Create an account?
-                                    <input type="checkbox" name="acc" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Account Password<span>*</span></p>
-                                <input type="text" name="passwd">
-                            </div> -->
-                            <!-- <div class="checkout__input__checkbox">
-                                <label for="diff-acc">
-                                    Note about your order, e.g, special noe for delivery
-                                    <input type="checkbox" name="fisrtName" id="diff-acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Order notes<span>*</span></p>
-                                <input type="text" name="fisrtName"
-                                placeholder="Notes about your order, e.g. special notes for delivery.">
-                            </div> -->
-                            <!-- </div> -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="checkout__order">
-                                    <h4 class="order__title">Your order</h4>
-                                    <div class="checkout__order__products">Product <span>Total</span></div>
-                                    <ul class="checkout__total__products">
-                                        <li>01. <?= $line[2] ?><span>$ <?= $line[7] ?></span></li>
-                                        <!-- <li>02. German chocolate <span>$ 170.0</span></li>
-                                    <li>03. Sweet autumn <span>$ 170.0</span></li>
-                                    <li>04. Cluten free mini dozen <span>$ 110.0</span></li> -->
-                                    </ul>
-                                    <ul class="checkout__total__all">
-                                        <li>Subtotal <span>$<?= $line[7] ?></span></li>
-                                        <li>Total <span>$<?= $line[7] ?></span></li>
-                                    </ul>
-                                    <!-- <div class="checkout__input__checkbox">
-                                    <label for="acc-or">
-                                        Create an account?
-                                        <input type="checkbox" id="acc-or">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div> -->
-                                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                    ut labore et dolore magna aliqua.</p>
-                                    <div class="checkout__input__checkbox">
-                                        <label for="payment">
-                                            Check Payment
-                                            <input type="checkbox" id="payment">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                    <div class="checkout__input__checkbox">
-                                        <label for="paypal">
-                                            Paypal
-                                            <input type="checkbox" id="paypal">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div> -->
-                                    <button type="submit" id="checkout" name="click" value="" class="site-btn">PLACE
-                                        ORDER</button>
-                                </div>
-                            </div>
-                        </div>
-                </form>
-            </div>
-        </div>
-    </section>
-    <?php endif; ?>
-    <?php endwhile; ?>
-    <?php fclose($products); ?>
-    <!-- Checkout Section End -->
-
-    <!-- Footer Section Begin -->
-    <footer class="footer">
+ <!-- Footer Section Begin -->
+ <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">

@@ -1,5 +1,5 @@
 <?php
-    var_dump($_GET);
+    // var_dump($_GET);
     $products = "../db/products.csv";
     $products = fopen($products,"r");
 ?>

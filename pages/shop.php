@@ -2,7 +2,7 @@
 $products = "../db/products.csv";
 $products = fopen($products,"r");
 
-var_dump($_GET);
+// var_dump($_GET);
 
 ?>
 <!DOCTYPE html>
@@ -169,7 +169,7 @@ var_dump($_GET);
                                 <div id="afficher">
                                 </div>
                         </div>
-                        <div class="shop__sidebar__accordion">
+                        <!-- <div class="shop__sidebar__accordion">
                             <div class="accordion" id="accordionExample">
                                 <div class="card">
                                     <div class="card-heading">
@@ -321,11 +321,11 @@ var_dump($_GET);
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <div class="shop__product__option">
+                    <!-- <div class="shop__product__option">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="shop__product__option__left">
@@ -343,7 +343,7 @@ var_dump($_GET);
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row">
                         <?php if(isset($products)): ?>
                         <?php fgetcsv($products,null,",") ?>

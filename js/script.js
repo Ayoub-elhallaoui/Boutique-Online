@@ -14,3 +14,10 @@ search.addEventListener('change',(e)=>{
     const searchTerme = e.target.value
     afficherRes(searchTerme)
 })
+
+
+const checkout = document.querySelector('#checkout').value
+checkout.addEventListener('click',(e)=>{
+    console.log(e.preventDefault())
+    e.stopPropagation()
+})
