@@ -1,6 +1,19 @@
 <?php
-$products = "../db/products.csv";
-$products = fopen($products,"r");
+$products_file = '../db/products.csv';
+$products_file = fopen($products_file, 'r');
+$products = [];
+if(!empty($products_file)){
+    fgetcsv($products_file,null,",");
+    while($line =  fgetcsv($products_file,null,",")){
+        $products[] = $line;
+    }
+}
+fclose($products_file);
+foreach($products as $product){
+
+    var_dump($product[2]);
+}
+
 
 // var_dump($_GET);
 
@@ -18,7 +31,7 @@ $products = fopen($products,"r");
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
@@ -34,9 +47,9 @@ $products = fopen($products,"r");
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Offcanvas Menu Begin -->
     <div class="offcanvas-menu-overlay"></div>
@@ -162,12 +175,80 @@ $products = fopen($products,"r");
                 <div class="col-lg-3">
                     <div class="shop__sidebar">
                         <div class="shop__sidebar__search">
-                                <form action="#" method="GET">
-                                    <input type="text" id="search" name="termSearch" placeholder="Search...">
-                                    <button type="submit"><span class="icon_search"></span></button>
-                                </form>
-                                <div id="afficher">
-                                </div>
+                            <form action="#" method="POST">
+                                <input type="text" id="search" name="termSearch" placeholder="Search...">
+                                <button type="submit" span class="icon_search"></span></button>
+                            </form>
+                                <?php
+                                    // var_dump($_GET);
+                                    
+                                    if ( isset($_POST['termSearch']) && !empty($_POST['termSearch']) ) {
+                                        $termSearch = $_POST['termSearch'];
+                                        $search = [];
+                                        foreach($products as $prod){
+                                            // var_dump($prod[2]);
+                                            
+                                            if( stripos($prod[2],$termSearch)!==false ){
+                                                $search[] = $prod; 
+                                            }
+                                        }
+                                        // var_dump($search);
+                                    
+                                    if(!empty($search) && !empty($termSearch)){
+                                        foreach($search as $item){
+                                        echo  '
+                                            <div class="product__item">
+                                            <div class="product__item__pic set-bg" data-setbg="../'.$item[1].'">
+                                                <ul class="product__hover">
+                                                    <!-- <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>
+                                                    <li><a href="#"><img src="../img/icon/compare.png" alt=""> <span>Compare</span></a>
+                                                    </li> -->
+                                                    <li><a href="shop-details.php?id='.$item[0].'"><img
+                                                                src="../img/icon/search.png" alt=""></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="product__item__text">
+                                                <h6>'.$item[2].'</h6>
+                                                <!-- <a href="#" class="add-cart">+ Add To Cart</a> -->
+                                                <div class="rating">
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <h5>$'.$item[7].'</h5>
+                                                <div class="product__color__select">
+                                                    <label for="pc-4">
+                                                        <input type="radio" id="pc-4">
+                                                    </label>
+                                                    <label class="active black" for="pc-5">
+                                                        <input type="radio" id="pc-5">
+                                                    </label>
+                                                    <label class="grey" for="pc-6">
+                                                        <input type="radio" id="pc-6">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            ';
+                                        }
+                                    }
+                                    else{
+                                        echo "Aucun produit n'a été trouvé";
+                                    }
+                                }
+                                    ?>
+            
+              
+                            <div class="container-fluid">
+                                
+                                
+                            </div>
+
+
+                            <!-- <div id="afficher">
+                                </div> -->
                         </div>
                         <!-- <div class="shop__sidebar__accordion">
                             <div class="accordion" id="accordionExample">
@@ -344,22 +425,26 @@ $products = fopen($products,"r");
                             </div>
                         </div>
                     </div> -->
+                    
                     <div class="row">
-                        <?php if(isset($products)): ?>
-                        <?php fgetcsv($products,null,",") ?>
-                        <?php while($line = fgetcsv($products,null,",")): ?>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
+                    
+                    <?php
+                    if(!empty($products)){
+                        foreach($products as $prod){
+                            echo  '
+                            <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="../<?=$line[1]?>">
+                                <div class="product__item__pic set-bg" data-setbg="../'.$prod[1].'">
                                     <ul class="product__hover">
                                         <!-- <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>
                                         <li><a href="#"><img src="../img/icon/compare.png" alt=""> <span>Compare</span></a>
                                         </li> -->
-                                        <li><a href="shop-details.php?id=<?=$line[0]?>"><img src="../img/icon/search.png" alt=""></a></li>
+                                        <li><a href="shop-details.php?id='.$prod[0].'"><img
+                                                    src="../img/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><?=$line[2]?></h6>
+                                    <h6>'.$prod[2].'</h6>
                                     <!-- <a href="#" class="add-cart">+ Add To Cart</a> -->
                                     <div class="rating">
                                         <i class="fa fa-star-o"></i>
@@ -368,7 +453,7 @@ $products = fopen($products,"r");
                                         <i class="fa fa-star-o"></i>
                                         <i class="fa fa-star-o"></i>
                                     </div>
-                                    <h5>$<?=$line[7]?></h5>
+                                    <h5>$'.$prod[7].'</h5>
                                     <div class="product__color__select">
                                         <label for="pc-4">
                                             <input type="radio" id="pc-4">
@@ -383,10 +468,16 @@ $products = fopen($products,"r");
                                 </div>
                             </div>
                         </div>
-                            <?php endwhile; ?>
-                            <?php endif; ?>
-                            <?php fclose($products) ?>
-                    </div>
+                        ';
+                    }
+                }
+                else{
+                    echo "Aucun produit n'a été trouvé";
+                }
+                ?>
+                </div>
+
+
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="product__pagination">
@@ -461,7 +552,8 @@ $products = fopen($products,"r");
                                 document.write(new Date().getFullYear());
                             </script>2020
                             All rights reserved | This template is made with <i class="fa fa-heart-o"
-                            aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                target="_blank">Colorlib</a>
                         </p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
