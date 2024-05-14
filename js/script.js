@@ -21,3 +21,14 @@ checkout.addEventListener('click',(e)=>{
     console.log(e.preventDefault())
     e.stopPropagation()
 })
+
+const sortPrice = document.querySelector('#sort').value
+sortPrice.addEventListener(
+    'click',
+    (e)=>{
+        console.log(e.target.value)
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+) ;
