@@ -10,13 +10,7 @@ if(!empty($products_file)){
     }
 }
 fclose($products_file);
-// foreach($products as $product){
 
-//     var_dump($product[2]);
-// }
-
-
-// var_dump($products);
 
 ?>
 <!DOCTYPE html>
@@ -182,12 +176,14 @@ fclose($products_file);
                             <div class="col-lg-9 col-md-9 col-sm-9">
                                 <div class="shop__product__option__right">
                                     
-                                    <p>Sort by Price:</p>
-                                    <div class="container w-50">
-                                        <form class="form-group"  method="GET">
-                                            <input class="form-control" value="<?=$_GET['min']?>" type="number" min="0" max="64" name="min" placeholder="Min($0 - $64)">
-                                            <input class="form-control" type="number" value="<?=$_GET['max']?>"  min="65" max="130" name="max" placeholder="Max($65 - $130)">
-                                            <input id="sort" type="submit" value="Sort" class="btn btn-light">
+                                    <h3 class="text-center">Sort by Price:</h3>
+                                    <div class="container m-auto w-50">
+                                        <form class="form-group checkout__order rounded"  method="GET">
+                                            <input class="form-control mb-2" value="<?php if(isset($_GET['min'])){ echo (int)$_GET['min']; } ?>" type="number" min="0" max="64" name="min" placeholder="Min($0 - $64)"/>
+                                            <input class="form-control mb-2" type="number" value="<?php if(isset($_GET['max'])){ echo (int)$_GET['max'];} ?>"  min="65" max="130" name="max" placeholder="Max($65 - $130)"/>
+                                            <div class="s">
+                                                <button id="sort" type="submit" class="m-auto btn btn-dark">Sort</button>
+                                            </div>
                                         </form>
                                     </div>
                                     <div class="shop__product__option__right">
@@ -264,7 +260,7 @@ fclose($products_file);
                     
                     <div class="shop__sidebar">
                         <div class="shop__sidebar__search">
-                            <form action="#" method="POST">
+                            <form class="w-75 m-auto" action="#" method="POST">
                                 <input type="text" id="search" name="termSearch" placeholder="Search...">
                                 <button type="submit" span class="icon_search"></span></button>
                             </form>

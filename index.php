@@ -112,7 +112,7 @@ $PRODUCTS = fopen($PRODUCTS, 'r');
                         <ul>
                             <li class="active"><a href="./index.php">Home</a></li>
                             <li><a href="/pages/shop.php">Shop</a></li>
-                            <li><a href="#">Pages</a>
+                            <!-- <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="/pages/about.php">About Us</a></li>
                                     <li><a href="/pages/shop-details.php">Shop Details</a></li>
@@ -121,7 +121,7 @@ $PRODUCTS = fopen($PRODUCTS, 'r');
                                     <li><a href="/pages/blog-details.php">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/pages/blog.php">Blog</a></li>
+                            <li><a href="/pages/blog.php">Blog</a></li> -->
                             <li><a href="/pages/contact.php">Contacts</a></li>
                         </ul>
                     </nav>
@@ -138,6 +138,10 @@ $PRODUCTS = fopen($PRODUCTS, 'r');
                                 class="text-light fs-3">Logout</a>
                             </button>
                         <?php endif;?>
+                            <!-- <button class="btn btn-dark">
+                                <a href="/pages/admin.php"
+                                class="text-light fs-3">Admin</a>
+                            </button> -->
                     </div>
                 </div>
             </div>

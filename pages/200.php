@@ -102,16 +102,7 @@
                         <ul>
                             <li><a href="../index.php">Home</a></li>
                             <li class="active"><a href="./shop.php">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./about.php">About Us</a></li>
-                                    <li><a href="./shop-details.php">Shop Details</a></li>
-                                    <li><a href="./shopping-cart.php">Shopping Cart</a></li>
-                                    <li><a href="./checkout.php">Check Out</a></li>
-                                    <li><a href="./blog-details.php">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.php">Blog</a></li>
+                            
                             <li><a href="./contact.php">Contacts</a></li>
                         </ul>
                     </nav>
@@ -135,7 +126,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__text">
-                        <h4>Check Out</h4>
+                        <h4>Commande confirmée</h4>
                         <div class="breadcrumb__links">
                             <a href="../index.php">Home</a>
                             <a href="./shop.php">Shop</a>

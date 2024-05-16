@@ -1,9 +1,6 @@
 order_id,name,product_id,total_amount,date,adress,tel,email
-1,meissa,1,12,12-13-2025,sfd,2345654,a@gmail.com
-1,meissa,1,12,12-13-2025,sfd,2345654,a@gmail.com
-1,meissa,1,12,12-13-2025,sfd,2345654,a@gmail.com
-85,sdvf,1,129.99,2024-05-15,svfe,2345432,meissa.gningue@facebook.com
 662,Ayoub,1,129.99,2024-05-22,Medina,876543456,ayoub@gmail.com
 446,Penda,1,129.99,2024-05-31,Ain sebaa,9876543456,p@gmail.com
 502,Penda,2,89.99,2024-05-23,Casa,345654324,pendac17@gmail.com
 518,xcs,2,89.99,2024-05-22,fd,3456765432,sfgef@gmail.com
+952,Ayoub,4,0.99,2024-05-24,Oulfa,9876543234,ayoub@gmail.com
